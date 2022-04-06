@@ -1,22 +1,22 @@
+import { Box, Card, CardContent } from "@mui/material";
 import {
   BooleanField,
+  ChipField,
   CreateButton,
   Datagrid,
   DateField,
-  EmailField,
   ExportButton,
   List,
   ListProps,
   NumberField,
-  TextField,
   TopToolbar,
 } from "react-admin";
-import { Box, Card, CardContent } from "@mui/material";
 import {
-  LastVisitedFilter,
-  HasOrderedFilter,
   HasNewsletterFilter,
-} from "../filters";
+  HasOrderedFilter,
+  LastVisitedFilter,
+} from "../../Filters";
+import { FullNameField } from "./FullNameField";
 
 const ListActions = () => (
   <TopToolbar>
@@ -50,13 +50,12 @@ const FilterSidebar = () => (
 export const CustomerList = (props: ListProps) => (
   <List {...props} actions={<ListActions />} aside={<FilterSidebar />}>
     <Datagrid rowClick="edit">
-      <TextField source="first_name" />
-      <TextField source="last_name" />
-      <TextField source="avatar" />
+      <FullNameField label="customers" />
+
       <DateField source="last_seen" />
       <DateField source="latest_purchase" />
       <BooleanField source="has_newsletter" />
-      <TextField source="groups" />
+      <ChipField source="groups" />
       <NumberField source="nb_commands" />
       <NumberField source="total_spent" />
     </Datagrid>
