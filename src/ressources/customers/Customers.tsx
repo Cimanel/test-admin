@@ -1,19 +1,15 @@
 import { Box, Card, CardContent } from "@mui/material";
-import { useEffect, useState } from "react";
 import {
   BooleanField,
-  ChipField,
   CreateButton,
   Datagrid,
   DateField,
   ExportButton,
+  FilterLiveSearch,
   List,
   ListProps,
   NumberField,
-  RaRecord,
   TopToolbar,
-  useListContext,
-  useRecordContext,
 } from "react-admin";
 import {
   HasNewsletterFilter,
@@ -22,6 +18,7 @@ import {
 } from "../../Filters";
 import { FormattedTotalSpentField } from "./FormattedTotalSpentField";
 import { FullNameField } from "./FullNameField";
+import { GroupChipField } from "./GroupChipField";
 
 const ListActions = () => (
   <TopToolbar>
@@ -45,6 +42,7 @@ const FilterSidebar = () => (
   >
     <Card variant="outlined">
       <CardContent>
+        <FilterLiveSearch source="q" />
         <LastVisitedFilter />
         <HasOrderedFilter />
         <HasNewsletterFilter />
@@ -56,7 +54,7 @@ const FilterSidebar = () => (
 export const CustomersDatagrid = (props: ListProps) => {
   return (
     <Datagrid rowClick="edit">
-      <FullNameField label="Customers" />
+      <FullNameField label="Customers" source="last_name" />
 
       <DateField source="last_seen" />
       <NumberField
@@ -67,7 +65,7 @@ export const CustomersDatagrid = (props: ListProps) => {
       <FormattedTotalSpentField source="total_spent" />
       <DateField source="latest_purchase" />
       <BooleanField source="has_newsletter" label="News." />
-      <ChipField source="groups" />
+      <GroupChipField source="groups" />
     </Datagrid>
   );
 };
