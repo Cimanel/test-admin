@@ -17,7 +17,7 @@ import {
   LastVisitedFilter,
 } from "../../Filters";
 import { FormattedTotalSpentField } from "./FormattedTotalSpentField";
-import { FullNameField } from "./FullNameField";
+import { FullNameField } from "../commonFields/FullNameField";
 import { GroupChipField } from "./GroupChipField";
 
 const ListActions = () => (

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { useRecordContext, UseRecordContextParams } from "react-admin";
-import { AvatarField } from "./AvatarField";
+import { AvatarField } from "../customers/AvatarField";
 
 export const FullNameField = (props: UseRecordContextParams) => {
   const record = useRecordContext(props);
