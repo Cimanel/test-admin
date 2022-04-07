@@ -6,9 +6,9 @@ export const FullNameField = (props: UseRecordContextParams) => {
   const record = useRecordContext(props);
 
   return record ? (
-    <Box>
-      <AvatarField source="record.avatar" />
-      <span>
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <AvatarField record={record} />
+      <span style={{ marginLeft: 10 }}>
         {record.first_name} {record.last_name}
       </span>
     </Box>
