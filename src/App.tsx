@@ -6,6 +6,8 @@ import { CustomerList } from "./ressources/customers/Customers";
 import { Dashboard } from "./Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 
+import { createTheme } from "@mui/material";
+
 function App() {
   return (
     <div className="App">
