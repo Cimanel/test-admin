@@ -53,7 +53,12 @@ export function TabPanel(props: TabPanelProps) {
                 <ChipField source="product_id" />
               </SingleFieldList>
             </ArrayField>
-            <NumberField source="total" />
+            <NumberField
+              sx={{ textAlign: "right", fontWeight: "bolder" }}
+              source="total"
+              label="Total"
+              options={{ style: "currency", currency: "USD" }}
+            />
             <TextField source="status" />
             <BooleanField source="returned" />
           </Datagrid>

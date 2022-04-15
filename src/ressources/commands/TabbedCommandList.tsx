@@ -1,5 +1,5 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ListProps, useListContext } from "react-admin";
 import { TabPanel } from "./TabPanel";
 
@@ -21,8 +21,9 @@ export const TabbedCommandList = (props: ListProps) => {
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
-    setFilters({ status: Status[newValue] }, {});
   };
+
+  useEffect(() => setFilters({ status: Status[value] }, {}), [value]);
 
   return (
     <Box>
