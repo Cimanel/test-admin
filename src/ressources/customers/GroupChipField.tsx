@@ -1,5 +1,5 @@
-import { BooleanField, useRecordContext } from "react-admin";
 import { Chip } from "@mui/material";
+import { useRecordContext } from "react-admin";
 
 export const GroupChipField = ({ source }: { source: string }) => {
   const record = useRecordContext();

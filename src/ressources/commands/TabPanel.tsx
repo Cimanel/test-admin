@@ -1,14 +1,13 @@
 import { Box } from "@mui/material";
 import {
-  ArrayField,
   BooleanField,
-  ChipField,
   Datagrid,
   DateField,
+  FunctionField,
   ListProps,
   NumberField,
+  RaRecord,
   ReferenceField,
-  SingleFieldList,
   TextField,
 } from "react-admin";
 import { FullAddressField } from "../commonFields/FullAddressField";
@@ -48,18 +47,23 @@ export function TabPanel(props: TabPanelProps) {
             >
               <FullAddressField {...props} />
             </ReferenceField>
-            <ArrayField source="basket">
-              <SingleFieldList>
-                <ChipField source="product_id" />
-              </SingleFieldList>
-            </ArrayField>
+            <FunctionField
+              label="Nb items"
+              render={(record: RaRecord) => {
+                let nbItemsCalculated = record.basket.reduce(
+                  (previousValue: number, currentValue: { quantity: number }) =>
+                    previousValue + currentValue.quantity,
+                  0
+                );
+                return ` ${nbItemsCalculated}`;
+              }}
+            />
             <NumberField
               sx={{ textAlign: "right", fontWeight: "bolder" }}
               source="total"
               label="Total"
               options={{ style: "currency", currency: "USD" }}
             />
-            <TextField source="status" />
             <BooleanField source="returned" />
           </Datagrid>
         </Box>

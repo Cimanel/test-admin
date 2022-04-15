@@ -1,4 +1,4 @@
-import { NumberField, RaRecord, useRecordContext } from "react-admin";
+import { NumberField, useRecordContext } from "react-admin";
 
 type FormattedTotalSpentFieldProps = {
   source: string;
