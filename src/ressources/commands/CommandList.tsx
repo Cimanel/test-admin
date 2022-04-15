@@ -18,7 +18,7 @@ export const ListActions = () => {
 
 export const CommandList = (props: ListProps) => {
   return (
-    <List {...props} actions={<ListActions />}>
+    <List actions={<ListActions />}>
       <TabbedCommandList {...props} />
     </List>
   );

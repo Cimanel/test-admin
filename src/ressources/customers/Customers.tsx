@@ -29,16 +29,11 @@ const ListActions = () => (
 
 const FilterSidebar = () => (
   <Box
-    sx={{
-      display: {
-        xs: "none",
-        sm: "block",
-      },
-      order: -1, // display on the left rather than on the right of the list
-      width: "15em",
-      marginRight: "1em",
-      marginTop: "4em",
-    }}
+    display={{ xs: "none", sm: "block" }}
+    order={-1} // display on the left rather than on the right of the list
+    width="15em"
+    marginRight="1em"
+    marginTop="4em"
   >
     <Card variant="outlined">
       <CardContent>
@@ -57,11 +52,7 @@ export const CustomersDatagrid = (props: ListProps) => {
       <FullNameField label="Customers" source="last_name" />
 
       <DateField source="last_seen" />
-      <NumberField
-        source="nb_commands"
-        label="Orders"
-        sx={{ color: "purple" }}
-      />
+      <NumberField source="nb_commands" label="Orders" color="purple" />
       <FormattedTotalSpentField source="total_spent" />
       <DateField source="latest_purchase" />
       <BooleanField source="has_newsletter" label="News." />
@@ -73,7 +64,6 @@ export const CustomersDatagrid = (props: ListProps) => {
 export const CustomerList = (props: ListProps) => {
   return (
     <List
-      {...props}
       aside={<FilterSidebar />}
       actions={<ListActions />}
       sx={{

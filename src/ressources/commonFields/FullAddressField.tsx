@@ -1,11 +1,11 @@
 import { useRecordContext, UseRecordContextParams } from "react-admin";
-
+import { Typography } from "@mui/material";
 export const FullAddressField = (props: UseRecordContextParams) => {
   const record = useRecordContext(props);
 
   return record ? (
-    <span style={{ color: "black" }}>
+    <Typography color="black">
       {record.address}, {record.city}, {record.zipcode}
-    </span>
+    </Typography>
   ) : null;
 };

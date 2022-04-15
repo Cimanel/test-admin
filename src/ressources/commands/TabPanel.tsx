@@ -59,7 +59,8 @@ export function TabPanel(props: TabPanelProps) {
               }}
             />
             <NumberField
-              sx={{ textAlign: "right", fontWeight: "bolder" }}
+              textAlign="right"
+              fontWeight="bolder"
               source="total"
               label="Total"
               options={{ style: "currency", currency: "USD" }}

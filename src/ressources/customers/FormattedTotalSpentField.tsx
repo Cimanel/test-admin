@@ -11,7 +11,7 @@ export const FormattedTotalSpentField = ({
 
   return record ? (
     <NumberField
-      sx={() => (record[source] > 500 ? { color: "red" } : { color: "grey" })}
+      color={() => (record[source] > 500 ? "red" : "grey")}
       source={source}
       label="Total spent"
       options={{ style: "currency", currency: "USD" }}
