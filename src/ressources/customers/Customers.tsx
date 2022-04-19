@@ -66,9 +66,6 @@ export const CustomerList = (props: ListProps) => {
     <List
       aside={<FilterSidebar />}
       actions={<ListActions />}
-      sx={{
-        "& .RaDatagrid-headerCell": { fontWeight: "bold" },
-      }}
       sort={{ field: "last_seen", order: "DESC" }}
       component={(props) => <Card variant="outlined" {...props} />}
       emptyWhileLoading

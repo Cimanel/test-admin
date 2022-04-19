@@ -37,6 +37,7 @@ export const TabbedCommandList = (props: ListProps) => {
           {Object.keys(Status).map((item) => {
             return (
               <Tab
+                key={item}
                 label={Status[parseInt(item)].toUpperCase()}
                 {...a11yProps(parseInt(item))}
               />
@@ -46,7 +47,12 @@ export const TabbedCommandList = (props: ListProps) => {
       </Box>
       {Object.keys(Status).map((item) => {
         return (
-          <TabPanel value={value} index={parseInt(item)} listProps={props} />
+          <TabPanel
+            key={item}
+            value={value}
+            index={parseInt(item)}
+            listProps={props}
+          />
         );
       })}
     </Box>
