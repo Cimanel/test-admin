@@ -1,6 +1,6 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import { useEffect, useState } from "react";
-import { ListProps, useListContext } from "react-admin";
+import { useListContext } from "react-admin";
 import { TabPanel } from "./TabPanel";
 
 const Status: { [key: number]: string } = {
@@ -15,7 +15,7 @@ function a11yProps(index: number) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-export const TabbedCommandList = (props: ListProps) => {
+export const TabbedCommandList = () => {
   const [value, setValue] = useState(0);
   const { filterValues, setFilters } = useListContext();
 
@@ -45,16 +45,7 @@ export const TabbedCommandList = (props: ListProps) => {
           })}
         </Tabs>
       </Box>
-      {Object.keys(Status).map((item) => {
-        return (
-          <TabPanel
-            key={item}
-            value={value}
-            index={parseInt(item)}
-            listProps={props}
-          />
-        );
-      })}
+      <TabPanel />
     </Box>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 import { Admin, Resource } from "react-admin";
 import "./App.css";
 import { Dashboard } from "./Dashboard";
-import { dataProvider } from "./data/DataProvider";
+import { dataProvider } from "./data/dataProvider";
 import { CommandList } from "./ressources/commands/CommandList";
 import { CustomerEdit } from "./ressources/customers/CustomerEdit";
 import { CustomerList } from "./ressources/customers/Customers";

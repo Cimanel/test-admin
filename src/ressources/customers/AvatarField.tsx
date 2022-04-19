@@ -9,10 +9,10 @@ export const AvatarField = ({
 
   if (record.avatar) return <Avatar src={record.avatar} />;
 
-  return <Avatar {...stringAvatar(record)} />;
+  return <Avatar {...fullNameInitialLetters(record)} />;
 };
 
-function stringAvatar(record: RaRecord) {
+function fullNameInitialLetters(record: RaRecord) {
   if (!record.first_name && !record.last_name) return null;
   return {
     sx: {

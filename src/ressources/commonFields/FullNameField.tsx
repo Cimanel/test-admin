@@ -1,16 +1,17 @@
-import { Box, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { useRecordContext, UseRecordContextParams } from "react-admin";
 import { AvatarField } from "../customers/AvatarField";
+import { Customer } from "../customers/Customers";
 
-export const FullNameField = (props: UseRecordContextParams) => {
-  const record = useRecordContext(props);
+export const FullNameField = (props: UseRecordContextParams<Customer>) => {
+  const record = useRecordContext<Customer>(props);
 
   return record ? (
-    <Box display="flex" alignItems="center">
+    <Stack direction="row" spacing={2} alignItems="center">
       <AvatarField record={record} />
-      <Typography ml={10} color="#4f3cc9">
+      <Typography color="#4f3cc9">
         {record.first_name} {record.last_name}
       </Typography>
-    </Box>
+    </Stack>
   ) : null;
 };

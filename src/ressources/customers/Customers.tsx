@@ -7,18 +7,37 @@ import {
   ExportButton,
   FilterLiveSearch,
   List,
-  ListProps,
   NumberField,
   TopToolbar,
 } from "react-admin";
+import { FullNameField } from "../commonFields/FullNameField";
 import {
   HasNewsletterFilter,
   HasOrderedFilter,
   LastVisitedFilter,
-} from "../../Filters";
+} from "./Filters";
 import { FormattedTotalSpentField } from "./FormattedTotalSpentField";
-import { FullNameField } from "../commonFields/FullNameField";
 import { GroupChipField } from "./GroupChipField";
+
+export interface Customer {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  birthday: Date;
+  address: string;
+  zipcode: string;
+  city: string;
+  avatar: string;
+  first_seen: Date;
+  last_seen: Date;
+  nb_commands: number;
+  total_spent: number;
+  latest_purchase: Date;
+  has_newsletter: boolean;
+  has_ordered: boolean;
+  groups: string[];
+}
 
 const ListActions = () => (
   <TopToolbar>
@@ -46,7 +65,7 @@ const FilterSidebar = () => (
   </Box>
 );
 
-export const CustomersDatagrid = (props: ListProps) => {
+export const CustomersDatagrid = () => {
   return (
     <Datagrid rowClick="edit">
       <FullNameField label="Customers" source="last_name" />
@@ -61,7 +80,7 @@ export const CustomersDatagrid = (props: ListProps) => {
   );
 };
 
-export const CustomerList = (props: ListProps) => {
+export const CustomerList = () => {
   return (
     <List
       aside={<FilterSidebar />}
@@ -70,7 +89,7 @@ export const CustomerList = (props: ListProps) => {
       component={(props) => <Card variant="outlined" {...props} />}
       emptyWhileLoading
     >
-      <CustomersDatagrid {...props} />
+      <CustomersDatagrid />
     </List>
   );
 };
