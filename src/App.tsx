@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GroupIcon from "@mui/icons-material/Group";
+import React from "react";
+import { Admin, EditGuesser, Resource } from "react-admin";
+import "./App.css";
+import { Dashboard } from "./Dashboard";
+import { dataProvider } from "./data/dataProvider";
+import { CommandList } from "./ressources/commands/CommandList";
+import { CustomerList } from "./ressources/customers/Customers";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+        <Resource
+          name="customers"
+          list={CustomerList}
+          icon={GroupIcon}
+          edit={EditGuesser}
+        />
+        <Resource name="commands" list={CommandList} icon={GroupIcon} />
+      </Admin>
     </div>
   );
 }
