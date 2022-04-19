@@ -18,6 +18,6 @@ export const FormattedTotalSpentField = ({
     />
   ) : null;
 };
-FormattedTotalSpentField.defaultProps = {
-  textAlign: "right",
-};
+// FormattedTotalSpentField.defaultProps = {
+//   textAlign: "right",
+// };
