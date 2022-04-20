@@ -1,4 +1,6 @@
 import GroupIcon from "@mui/icons-material/Group";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+
 import React from "react";
 import { Admin, Resource } from "react-admin";
 import "./App.css";
@@ -18,7 +20,7 @@ function App() {
           icon={GroupIcon}
           edit={CustomerEdit}
         />
-        <Resource name="commands" list={CommandList} icon={GroupIcon} />
+        <Resource name="commands" list={CommandList} icon={AttachMoneyIcon} />
       </Admin>
     </div>
   );
