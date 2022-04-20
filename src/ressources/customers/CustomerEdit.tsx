@@ -1,52 +1,22 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography, Card } from "@mui/material";
 import {
-  DateField,
   DateInput,
   Edit,
   EditProps,
-  FunctionField,
   NullableBooleanInput,
   PasswordInput,
-  RaRecord,
   SelectArrayInput,
   SimpleForm,
   TextInput,
 } from "react-admin";
-import { ReviewsNbField } from "./ReviewsNbField";
-
-const Aside = () => (
-  <Box width="200px" margin="1em">
-    <Typography variant="h6" textAlign="left">
-      History
-    </Typography>
-    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      <Grid item xs={6}>
-        <Typography variant="body2">First seen</Typography>
-        <DateField source="first_seen" />
-      </Grid>
-      <Grid item xs={6}>
-        <FunctionField
-          render={(record: RaRecord) => {
-            return ` ${record.nb_commands} ${
-              record.nb_commands! > 0 ? "orders" : "order"
-            }`;
-          }}
-        />
-      </Grid>
-      <Grid item xs={6}>
-        <Typography variant="body2">Last seen</Typography>
-        <DateField source="last_seen" label="Last seen" />
-      </Grid>
-      <Grid item xs={6}>
-        <ReviewsNbField />
-      </Grid>
-    </Grid>
-  </Box>
-);
+import { Aside } from "./Aside";
 
 export const CustomerEdit = (props: EditProps) => {
   return (
-    <Edit aside={<Aside />}>
+    <Edit
+      aside={<Aside />}
+      component={(props) => <Card variant="outlined" {...props} />}
+    >
       <SimpleForm>
         <Grid
           container

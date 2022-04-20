@@ -1,4 +1,5 @@
-import { Typography } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
+import CommentIcon from "@mui/icons-material/Comment";
 import {
   useGetList,
   useRecordContext,
@@ -20,8 +21,11 @@ export const ReviewsNbField = (props: UseRecordContextParams<Customer>) => {
     return <Typography variant="body2">Error</Typography>;
   }
   return (
-    <Typography variant="body2">
-      {total} {total! && total > 0 ? "reviews" : "review"}
-    </Typography>
+    <Stack direction="row" spacing={1} alignItems="center">
+      <CommentIcon color="disabled" />
+      <Typography variant="body2">
+        {total} {total! && total > 0 ? "reviews" : "review"}
+      </Typography>
+    </Stack>
   );
 };
