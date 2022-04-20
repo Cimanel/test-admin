@@ -5,12 +5,12 @@ import {
   useRecordContext,
   UseRecordContextParams,
 } from "react-admin";
-import { Customer } from "./Customers";
+import { Customer } from "./CustomerList";
 
-export const ReviewsNbField = (props: UseRecordContextParams<Customer>) => {
-  const record = useRecordContext<Customer>(props);
-  const { data, total, isLoading, error } = useGetList("reviews", {
-    pagination: { page: 1, perPage: 5 },
+export const ReviewsNbField = () => {
+  const record = useRecordContext<Customer>();
+  const {  total, isLoading, error } = useGetList("reviews", {
+    pagination: { page: 1, perPage: 1 },
     filter: { customer_id: record.id },
   });
 

@@ -13,10 +13,10 @@ import {
 } from "react-admin";
 import { FieldErrors, FieldValues } from "react-hook-form";
 import { Aside } from "./Aside";
-import { Customer } from "./Customers";
+import { Customer } from "./CustomerList";
 
-const CustomerTitle = (props: UseRecordContextParams<Customer>) => {
-  const record = useRecordContext<Customer>(props);
+const CustomerTitle = () => {
+  const record = useRecordContext<Customer>();
   return (
     <Typography>
       {record.first_name} {record.last_name}
@@ -26,9 +26,9 @@ const CustomerTitle = (props: UseRecordContextParams<Customer>) => {
 
 const validateCustomerEdit = (values: FieldValues) => {
   const errors: FieldErrors = {};
-  if (!values.first_name) {
-    errors.first_name = "The firstName is required";
-  }
+  // if (!values.first_name) {
+  //   errors.first_name = "The firstName is required";
+  // }
   if (!values.last_name) {
     errors.last_name = "The lastName is required";
   }
