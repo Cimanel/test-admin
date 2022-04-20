@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, Card } from "@mui/material";
+import { Box, Card, Grid, Typography } from "@mui/material";
 import {
   DateInput,
   Edit,
@@ -11,6 +11,7 @@ import {
   useRecordContext,
   UseRecordContextParams,
 } from "react-admin";
+import { FieldErrors, FieldValues } from "react-hook-form";
 import { Aside } from "./Aside";
 import { Customer } from "./Customers";
 
@@ -23,6 +24,20 @@ const CustomerTitle = (props: UseRecordContextParams<Customer>) => {
   );
 };
 
+const validateCustomerEdit = (values: FieldValues) => {
+  const errors: FieldErrors = {};
+  if (!values.first_name) {
+    errors.first_name = "The firstName is required";
+  }
+  if (!values.last_name) {
+    errors.last_name = "The lastName is required";
+  }
+  if (!values.email) {
+    errors.email = "The email is required";
+  }
+  return errors;
+};
+
 export const CustomerEdit = (props: EditProps) => {
   return (
     <Edit
@@ -30,7 +45,7 @@ export const CustomerEdit = (props: EditProps) => {
       title={<CustomerTitle />}
       component={(props) => <Card variant="outlined" {...props} />}
     >
-      <SimpleForm>
+      <SimpleForm validate={validateCustomerEdit}>
         <Grid
           container
           spacing={3}
