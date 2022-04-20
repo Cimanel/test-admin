@@ -8,13 +8,26 @@ import {
   SelectArrayInput,
   SimpleForm,
   TextInput,
+  useRecordContext,
+  UseRecordContextParams,
 } from "react-admin";
 import { Aside } from "./Aside";
+import { Customer } from "./Customers";
+
+const CustomerTitle = (props: UseRecordContextParams<Customer>) => {
+  const record = useRecordContext<Customer>(props);
+  return (
+    <Typography>
+      {record.first_name} {record.last_name}
+    </Typography>
+  );
+};
 
 export const CustomerEdit = (props: EditProps) => {
   return (
     <Edit
       aside={<Aside />}
+      title={<CustomerTitle />}
       component={(props) => <Card variant="outlined" {...props} />}
     >
       <SimpleForm>
@@ -29,22 +42,23 @@ export const CustomerEdit = (props: EditProps) => {
               Identity
             </Typography>
             <Box display={{ xs: "block", sm: "flex" }}>
-              <Box flex={1} mr={{ xs: 0, sm: "0.5em" }}>
-                <TextInput
-                  source="first_name"
-                  isRequired
-                  fullWidth
-                  color="secondary"
-                />
-              </Box>
-              <Box flex={1} ml={{ xs: 0, sm: "0.5em" }}>
-                <TextInput source="last_name" isRequired fullWidth />
-              </Box>
+              <TextInput
+                sx={{ flex: 1, mr: { xs: 0, sm: "0.5em" } }}
+                source="first_name"
+                isRequired
+                fullWidth
+                color="secondary"
+              />
+              <TextInput
+                sx={{ flex: 1, ml: { xs: 0, sm: "0.5em" } }}
+                source="last_name"
+                isRequired
+                fullWidth
+              />
             </Box>
             <TextInput type="email" source="email" isRequired fullWidth />
             <DateInput source="birthday" />
-            <Box m={1} />
-            <Typography variant="h6" gutterBottom>
+            <Typography marginTop={2} variant="h6" gutterBottom>
               Address
             </Typography>
             <TextInput
@@ -54,29 +68,40 @@ export const CustomerEdit = (props: EditProps) => {
               helperText={false}
             />
             <Box display={{ xs: "block", sm: "flex" }}>
-              <Box flex={2} mr={{ xs: 0, sm: "0.5em" }}>
-                <TextInput source="city" fullWidth helperText={false} />
-              </Box>
-              <Box flex={1} mr={{ xs: 0, sm: "0.5em" }}>
-                <TextInput source="stateAbbr" fullWidth helperText={false} />
-              </Box>
-              <Box flex={2}>
-                <TextInput source="zipcode" fullWidth helperText={false} />
-              </Box>
+              <TextInput
+                sx={{ flex: 1, mr: { xs: 0, sm: "0.5em" } }}
+                source="city"
+                fullWidth
+                helperText={false}
+              />
+              <TextInput
+                sx={{ flex: 1, mr: { xs: 0, sm: "0.5em" } }}
+                source="stateAbbr"
+                fullWidth
+                helperText={false}
+              />
+              <TextInput
+                sx={{ flex: 2 }}
+                source="zipcode"
+                fullWidth
+                helperText={false}
+              />
             </Box>
-            <Box m={1} />
-            <Typography variant="h6" gutterBottom>
+            <Typography marginTop={2} variant="h6" gutterBottom>
               Password
             </Typography>
             <Box display={{ xs: "block", sm: "flex" }}>
-              <Box flex={1} mr={{ xs: 0, sm: "0.5em" }}>
-                <PasswordInput source="password" fullWidth />
-              </Box>
-              <Box flex={1} ml={{ xs: 0, sm: "0.5em" }}>
-                <PasswordInput source="new_password" fullWidth />
-              </Box>
+              <PasswordInput
+                sx={{ flex: 1, mr: { xs: 0, sm: "0.5em" } }}
+                source="password"
+                fullWidth
+              />
+              <PasswordInput
+                sx={{ flex: 1, ml: { xs: 0, sm: "0.5em" } }}
+                source="new_password"
+                fullWidth
+              />
             </Box>
-            <Box m={1} />
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6" gutterBottom>

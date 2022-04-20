@@ -68,7 +68,7 @@ const FilterSidebar = () => (
 export const CustomersDatagrid = () => {
   return (
     <Datagrid rowClick="edit">
-      <FullNameField label="Customers" source="last_name" />
+      <FullNameField label="Customers" />
 
       <DateField source="last_seen" />
       <NumberField source="nb_commands" label="Orders" color="purple" />
