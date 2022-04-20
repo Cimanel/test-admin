@@ -1,7 +1,7 @@
 import { Stack, Typography } from "@mui/material";
 import { useRecordContext, UseRecordContextParams } from "react-admin";
 import { AvatarField } from "../customers/AvatarField";
-import { Customer } from "../customers/Customers";
+import { Customer } from "../customers/CustomerList";
 
 export const FullNameField = (props: UseRecordContextParams<Customer>) => {
   const record = useRecordContext<Customer>(props);

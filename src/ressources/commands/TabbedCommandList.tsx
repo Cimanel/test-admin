@@ -37,6 +37,7 @@ export const TabbedCommandList = () => {
           {Object.keys(Status).map((item) => {
             return (
               <Tab
+                key={item}
                 label={Status[parseInt(item)].toUpperCase()}
                 {...a11yProps(parseInt(item))}
               />
