@@ -1,15 +1,11 @@
-import { Typography, Stack } from "@mui/material";
 import CommentIcon from "@mui/icons-material/Comment";
-import {
-  useGetList,
-  useRecordContext,
-  UseRecordContextParams,
-} from "react-admin";
+import { Stack, Typography } from "@mui/material";
+import { useGetList, useRecordContext } from "react-admin";
 import { Customer } from "./CustomerList";
 
 export const ReviewsNbField = () => {
   const record = useRecordContext<Customer>();
-  const {  total, isLoading, error } = useGetList("reviews", {
+  const { total, isLoading, error } = useGetList("reviews", {
     pagination: { page: 1, perPage: 1 },
     filter: { customer_id: record.id },
   });
