@@ -17,7 +17,7 @@ function a11yProps(index: number) {
 }
 export const TabbedCommandList = () => {
   const [value, setValue] = useState(0);
-  const { filterValues, setFilters } = useListContext();
+  const { setFilters } = useListContext();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
