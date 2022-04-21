@@ -18,7 +18,7 @@ import { Customer } from "./CustomerList";
 const CustomerTitle = () => {
   const record = useRecordContext<Customer>();
   return (
-    <Typography>
+    <Typography variant="h5">
       {record.first_name} {record.last_name}
     </Typography>
   );
@@ -128,7 +128,7 @@ export const CustomerEdit = (props: EditProps) => {
               source="groups"
               choices={[
                 { id: "compulsive", name: "Compulsive" },
-                { id: "collecor", name: "Collector" },
+                { id: "collector", name: "Collector" },
                 { id: "reviewer", name: "Reviewer" },
                 { id: "regular", name: "Regular" },
                 { id: "returns", name: "Returns" },
