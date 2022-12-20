@@ -8,6 +8,7 @@ import {
   FilterLiveSearch,
   List,
   NumberField,
+  SavedQueriesList,
   TopToolbar,
 } from "react-admin";
 import { FullNameField } from "../commonFields/FullNameField";
@@ -56,6 +57,7 @@ const FilterSidebar = () => (
   >
     <Card variant="outlined">
       <CardContent>
+        <SavedQueriesList />
         <FilterLiveSearch source="q" />
         <LastVisitedFilter />
         <HasOrderedFilter />

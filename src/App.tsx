@@ -11,10 +11,20 @@ import { CustomerEdit } from "./ressources/customers/CustomerEdit";
 import { CustomerList } from "./ressources/customers/CustomerList";
 import { ProductList } from "./ressources/products/productList";
 
+import { defaultTheme } from "react-admin";
+
+const theme = {
+  ...defaultTheme,
+  sidebar: {
+    width: 200, // The default value is 240
+    closedWidth: 50, // The default value is 55
+  },
+};
+
 function App() {
   return (
     <div className="App">
-      <Admin dashboard={Dashboard} dataProvider={dataProvider}>
+      <Admin theme={theme} dashboard={Dashboard} dataProvider={dataProvider}>
         <Resource
           name="customers"
           list={CustomerList}

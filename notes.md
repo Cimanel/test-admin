@@ -26,3 +26,9 @@ export const UsersList = () => (
 ### doc RA
 
 main search input disapear when we scroll to the bottom of the page
+
+### data-generator-retail
+
+miss the product sales property
+
+### question merge theme, lodash/merge or mui deepmerge
