@@ -11,6 +11,7 @@
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "data-generator-retail": "^3.19.11",
+    "launchdarkly-react-client-sdk": "^3.0.0",
     "prop-types": "^15.8.1",
     "ra-data-fakerest": "^3.19.11",
     "ra-data-json-server": "^3.19.11",
